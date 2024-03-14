@@ -7,9 +7,17 @@ from typing import Any, List, Tuple, Type, Union
 
 import torch
 from torch.hub import load_state_dict_from_url
-from torchvision.models.resnet import model_urls, ResNet, BasicBlock, Bottleneck
+from torchvision.models.resnet import ResNet, BasicBlock, Bottleneck  # model_urls
 
 TypeSkipConnections = Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]
+
+model_urls = {
+    'resnet18': 'https://download.pytorch.org/models/resnet18-5c106cde.pth',
+    'resnet34': 'https://download.pytorch.org/models/resnet34-333f7ec4.pth',
+    'resnet50': 'https://download.pytorch.org/models/resnet50-19c8e357.pth',
+    'resnet101': 'https://download.pytorch.org/models/resnet101-5d3b4d8f.pth',
+    'resnet152': 'https://download.pytorch.org/models/resnet152-b121ed2d.pth',
+}
 
 
 class ResNetHIML(ResNet):

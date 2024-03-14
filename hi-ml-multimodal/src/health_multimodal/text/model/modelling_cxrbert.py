@@ -4,6 +4,7 @@
 #  ------------------------------------------------------------------------------------------
 
 from typing import Any, Optional, Tuple, Union
+from dataclasses import dataclass
 
 import torch
 import torch.nn.functional as F
@@ -17,9 +18,10 @@ from health_multimodal.text.model.configuration_cxrbert import CXRBertConfig
 BERTTupleOutput = Tuple[T, T, T, T, T]
 
 
+@dataclass
 class CXRBertOutput(ModelOutput):
     last_hidden_state: torch.FloatTensor
-    logits: torch.FloatTensor
+    logits: Optional[torch.FloatTensor] = None
     cls_projected_embedding: Optional[torch.FloatTensor] = None
     hidden_states: Optional[Tuple[torch.FloatTensor]] = None
     attentions: Optional[Tuple[torch.FloatTensor]] = None

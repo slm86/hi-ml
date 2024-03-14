@@ -10,11 +10,19 @@ from pathlib import Path
 
 from torch.hub import load_state_dict_from_url
 from torchvision.datasets.utils import download_url
-from torchvision.models.resnet import model_urls
+
+# from torchvision.models.resnet import model_urls
 
 from .model import ImageModel
 from .types import ImageEncoderType, ImageEncoderWeightTypes
 
+model_urls = {
+    'resnet18': 'https://download.pytorch.org/models/resnet18-5c106cde.pth',
+    'resnet34': 'https://download.pytorch.org/models/resnet34-333f7ec4.pth',
+    'resnet50': 'https://download.pytorch.org/models/resnet50-19c8e357.pth',
+    'resnet101': 'https://download.pytorch.org/models/resnet101-5d3b4d8f.pth',
+    'resnet152': 'https://download.pytorch.org/models/resnet152-b121ed2d.pth',
+}
 
 JOINT_FEATURE_SIZE = 128
 
